@@ -19,6 +19,6 @@ map('/api/user') {
 	run UserAPIController
 }
 
-map('/api/movie') {
+map('/api/movies') {
 	run MovieAPIController
 }
