@@ -39,5 +39,5 @@ class UserAPIController < AppController
 
 
 	end	
->>>>>>> e5cc8e02bfa168d942339ad6c0dc45a9c33d0aba
+
 end
