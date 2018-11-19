@@ -9,5 +9,4 @@ require './controllers/UserAPIController';
 require './models/UserModel';
 require './models/UserModel';
 
-#routes
 
