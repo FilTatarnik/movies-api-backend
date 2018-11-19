@@ -6,7 +6,7 @@ require './controllers/MovieAPIController';
 require './controllers/UserAPIController';
 
 #models
-require './models/UserModel';
+require './models/MovieModel';
 require './models/UserModel';
 
 #routes
@@ -15,10 +15,10 @@ map('/'){
 	run AppController
 }
 
-map('/api/user') {
+map('/api/users') {
 	run UserAPIController
 }
 
-map('/api/movies') {
+map('/api/movie') {
 	run MovieAPIController
 }
