@@ -9,4 +9,16 @@ require './controllers/UserAPIController';
 require './models/UserModel';
 require './models/UserModel';
 
+#routes
 
+map('/'){
+	run AppController
+}
+
+map('/api/user') {
+	run UserAPIController
+}
+
+map('/api/movie') {
+	run MovieAPIController
+}
