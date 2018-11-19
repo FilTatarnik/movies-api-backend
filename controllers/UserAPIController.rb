@@ -12,7 +12,7 @@ class UserAPIController < ApplicationController
 			session[:logged_in] = true
 			session[:username] = user.username
 			{
-				session: 200,
+				status: 200,
 				message: "#{user.username} has logged in!"
 			}.to_json
 
@@ -23,6 +23,7 @@ class UserAPIController < ApplicationController
 			}.to_json
 		end
 	end
+
 #register
 	post '/register' do
 			# {
@@ -31,7 +32,7 @@ class UserAPIController < ApplicationController
 			# }.to_json
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
-		
+
 		user_exists = User.find_by username: payload[:username]
 		if user_exists 
 			{
@@ -52,6 +53,7 @@ class UserAPIController < ApplicationController
 			}.to_json
 		end
 	end
+
 #logout
 	get '/logout' do
 		username = session[:username]
