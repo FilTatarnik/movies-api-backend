@@ -1,4 +1,4 @@
-class UserAPIController < AppController
+class UserAPIController < ApplicationController
 
 #login
 	post '/login' do
@@ -25,9 +25,13 @@ class UserAPIController < AppController
 	end
 #register
 	post '/register' do
+			# {
+			# 	status: 200, 
+			# 	message: "hitting the register route"
+			# }.to_json
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
-
+		
 		user_exists = User.find_by username: payload[:username]
 		if user_exists 
 			{

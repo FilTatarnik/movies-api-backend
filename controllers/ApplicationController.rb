@@ -1,4 +1,4 @@
-class AppController < Sinatra::Base
+class ApplicationController < Sinatra::Base
 
 
 	require 'bundler'
@@ -10,7 +10,7 @@ class AppController < Sinatra::Base
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'postgresql',
-		:databse => 'salty_movies'
+		:database => 'salty_movies'
 	)
 	register Sinatra::CrossOrigin
 

@@ -1,18 +1,18 @@
 require 'sinatra/base'
 
 #controller
-require './controllers/AppController';
-require './controllers/MovieAPIController';
+require './controllers/ApplicationController';
 require './controllers/UserAPIController';
+require './controllers/MovieAPIController';
 
 #models
-require './models/MovieModel';
 require './models/UserModel';
+require './models/MovieModel';
 
 #routes
 
 map('/'){
-	run AppController
+	run ApplicationController
 }
 
 map('/api/users') {

@@ -1,4 +1,4 @@
-class MovieAPIController < AppController
+class MovieAPIController < ApplicationController
 	
 	# index for movies
 	get '/' do
