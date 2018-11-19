@@ -1,12 +1,13 @@
 class MovieAPIController < AppController
 	
 	# index for movies
-	user = User.find_by username: session[:username]
-	{
-		status: 200,
-		movies: user.movies.order(:id)
-	}.to_json
-
+	get '/' do
+		user = User.find_by username: session[:username]
+		{
+			status: 200,
+			movies: user.movies.order(:id)
+		}.to_json
+	end
 
 	# create route
 	post '/' do
@@ -20,7 +21,7 @@ class MovieAPIController < AppController
 		movie.user_id = user.id
 		{
 			status: 200,
-			message "Created Movie",
+			message: "Created Movie",
 			movie: movie
 		}.to_json
 	end
