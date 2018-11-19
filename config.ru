@@ -6,7 +6,7 @@ require './controllers/MovieAPIController';
 require './controllers/UserAPIController';
 
 #models
-require './models/UserModel';
+require './models/MovieModel';
 require './models/UserModel';
 
 #routes
