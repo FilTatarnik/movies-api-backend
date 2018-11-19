@@ -1,0 +1,3 @@
+class UserAPIController < AppController
+
+end
