@@ -4,6 +4,9 @@ class AppController < Sinatra::Base
 	require 'bundler'
 	Bundler.require()
 
+	use Rack::Session::Cookie, :key =>'rack.session',
+							   :path => '/',
+							   :secret => 'your_secret'
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'postgresql',
@@ -28,6 +31,7 @@ class AppController < Sinatra::Base
   end
 
   get '/' do
+  	# binding.pry
   	{
   		status: 200, 
   		message: "This works"

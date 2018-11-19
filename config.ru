@@ -15,10 +15,10 @@ map('/'){
 	run AppController
 }
 
-map('/api/user') {
+map('/api/users') {
 	run UserAPIController
 }
 
-map('/api/movies') {
+map('/api/movie') {
 	run MovieAPIController
 }
