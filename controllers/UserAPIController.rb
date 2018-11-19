@@ -15,6 +15,7 @@ class UserAPIController < AppController
 				session: 200,
 				message: "#{user.username} has logged in!"
 			}.to_json
+
 		else
 			{
 				status: 403,
@@ -22,27 +23,39 @@ class UserAPIController < AppController
 			}.to_json
 		end
 	end
-
-
-
-
 #register
-
 	post '/register' do
+		payload_body = request.body.read
+		payload = JSON.parse(payload_body).symbolize_keys
 
-
-
-
+		user_exists = User.find_by username: payload[:username]
+		if user_exists 
+			{
+				status: 421, 
+				message: "Username already taken"
+			}.to_json
+		else 
+			user = User.new
+			user.username = payload[:username]
+			user.password = payload[:password]
+			user.save
+			session[:logged_in] = true
+			session[:username] = user.username
+			{
+				status: 200,
+				message: "#{user.username} created!",
+				logged_in_as: user.username
+			}.to_json
+		end
 	end
-
-
 #logout
-
-
 	get '/logout' do
-
-
-
+		username = session[:username]
+		session.destroy
+		{
+			status: 200,
+			message: "Logged out user #{username}"
+		}.to_json
 	end	
 
 end
