@@ -8,6 +8,7 @@ class MovieAPIController < AppController
 	}.to_json
 
 
+
 	# create route
 	post '/' do
 		payload_body = request.read.body
@@ -20,7 +21,7 @@ class MovieAPIController < AppController
 		movie.user_id = user.id
 		{
 			status: 200,
-			message "Created Movie",
+			message: "Created Movie",
 			movie: movie
 		}.to_json
 	end
