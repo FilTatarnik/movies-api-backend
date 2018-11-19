@@ -8,12 +8,17 @@ class UserAPIController < AppController
 		user = User.find_by username: payload[:username]
 		pw = payload[:password]
 
-		if user && user.authenticate pw
+		if user && user.authenticate(pw)
 			session[:logged_in] = true
 			session[:username] = user.username
 			{
 				session: 200,
 				message: "#{user.username} has logged in!"
+			}.to_json
+		else
+			{
+				status: 403,
+				message: "Invalid username or password"
 			}.to_json
 		end
 	end
