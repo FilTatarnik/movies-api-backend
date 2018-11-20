@@ -43,6 +43,7 @@ class MovieAPIController < ApplicationController
 			movie: movie
 		}.to_json
 	end
+	# delete
 	delete '/:id' do
 		movie = Movie.find params[:id]
 		movie.destroy
