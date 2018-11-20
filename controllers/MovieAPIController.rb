@@ -12,7 +12,7 @@ class MovieAPIController < ApplicationController
 
 	# create route
 	post '/' do
-		payload_body = request.read.body
+		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
 
 		user = User.find_by username: session[:username]
