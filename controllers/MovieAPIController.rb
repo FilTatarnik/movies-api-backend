@@ -15,6 +15,8 @@ class MovieAPIController < ApplicationController
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
 		# binding.pry
+		pp "hitting route"
+		
 		user = User.find_by username: session[:username]
 		movie = Movie.new
 		movie.title = payload[:title]

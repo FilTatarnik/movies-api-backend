@@ -32,8 +32,9 @@ class UserAPIController < ApplicationController
 			# }.to_json
 		payload_body = request.body.read
 		payload = JSON.parse(payload_body).symbolize_keys
-
+		username = payload[:username]
 		user_exists = User.find_by username: payload[:username]
+
 		if user_exists 
 			{
 				status: 421, 
