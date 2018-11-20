@@ -20,6 +20,7 @@ class MovieAPIController < ApplicationController
 		movie.title = payload[:title]
 		movie.description = payload[:description]
 		movie.user_id = user.id
+		movie.save
 		{
 			status: 200,
 			message: "Created Movie",
